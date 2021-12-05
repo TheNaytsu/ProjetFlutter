@@ -138,6 +138,10 @@ String? passwordValidator(String? passwordForm) {
   if(passwordForm == null || passwordForm.isEmpty){
     return 'Vous devez indiquer votre mot de passe.';
   }
+  RegExp letterReg = RegExp(r".[A-Za-z].");
+  if (!letterReg.hasMatch(passwordForm)) {
+    return 'Votre mot de passe doit contenir au moins une lettre';
+  }
   return null;
 }
 String? birthdateValidator(String? birthdateForm) {
